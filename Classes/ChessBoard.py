@@ -62,34 +62,18 @@ class ChessBoard:
         print("    ---------------------------------")
         for n in reversed(range(1,9)):
             print(f"{n}   "
-                 f"| {self.Piece_ID_Inv[self.Sq_ID[f'a{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID[f'b{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID[f'c{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID[f'd{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID[f'e{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID[f'f{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID[f'g{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID[f'h{n}']]} |"\
+                 f"| {self.Piece_ID_Inv[abs(self.Board[f'a{n}'].occuptant_id)]} |"\
+                 f" {self.Piece_ID_Inv[abs(self.Board[f'b{n}'].occuptant_id)]} |"\
+                 f" {self.Piece_ID_Inv[abs(self.Board[f'c{n}'].occuptant_id)]} |"\
+                 f" {self.Piece_ID_Inv[abs(self.Board[f'd{n}'].occuptant_id)]} |"\
+                 f" {self.Piece_ID_Inv[abs(self.Board[f'e{n}'].occuptant_id)]} |"\
+                 f" {self.Piece_ID_Inv[abs(self.Board[f'f{n}'].occuptant_id)]} |"\
+                 f" {self.Piece_ID_Inv[abs(self.Board[f'g{n}'].occuptant_id)]} |"\
+                 f" {self.Piece_ID_Inv[abs(self.Board[f'h{n}'].occuptant_id)]} |"\
             print("    ---------------------------------")
         print("                                     ")
         print("      a   b   c   d   e   f   g   h")
         
-    def visualize_board_prior(self):
-        print(f'Turn Number: {self.turn_number-1}')
-        print("    ---------------------------------")
-        for n in reversed(range(1,9)):
-            print(f"{n}   "
-                 f"| {self.Piece_ID_Inv[self.Sq_ID_Prev[f'a{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID_Prev[f'b{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID_Prev[f'c{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID_Prev[f'd{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID_Prev[f'e{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID_Prev[f'f{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID_Prev[f'g{n}']]} |"\
-                 f" {self.Piece_ID_Inv[self.Sq_ID_Prev[f'h{n}']]} |"\
-            print("    ---------------------------------")
-        print("                                     ")
-        print("      a   b   c   d   e   f   g   h")
 
 
     def move_update(self,BoardSquareObj,occupant_id):

@@ -39,26 +39,23 @@ class Player:
                         "K": 0}
 
 
-    def gen_pseudolegal_moves(self,c,board,board_threat_and_supports):     
-        pieces_on_board = []
-        for sq,pID in board.items():
-            if pID*c>=0:
-                pieces_on_board.append([sq,pID])
+    def gen_pseudolegal_moves(self,c,board,board_threat_and_supports):
+
 
         possible_moves = {}
-        for sq,pID in pieces_on_board:
+        for piece_name,piece_obj in self.Piece_Set:
             # Pawn Moves
-            if pID*c == 1:
+            if piece_obj.value*c == 1:
                 possible_moves[sq] = self.pawn_moves(sq,c,board,board_threat_and_supports)
-            elif pID*c == 2:
+            elif piece_obj.value*c == 2:
                 possible_moves[sq] = self.bishop_moves(sq,c,board,board_threat_and_supports)
-            elif pID*c == 3:
+            elif piece_obj.value*c == 3:
                 possible_moves[sq] = self.knight_moves(sq,c,board,board_threat_and_supports)
-            elif pID*c == 4:
+            elif piece_obj.value*c == 4:
                 possible_moves[sq] = self.rook_moves(sq,c,board,board_threat_and_supports)
-            elif pID*c == 5:
+            elif piece_obj.value*c == 5:
                 possible_moves[sq] = self.queen_moves(sq,c,board,board_threat_and_supports)
-            elif pID*c == 6:
+            elif piece_obj.value*c == 6:
                 possible_moves[sq] = self.king_moves(sq,c,board,board_threat_and_supports)
         possible_moves = {k: v for k,v in possible_moves.items() if v is not None}
 
