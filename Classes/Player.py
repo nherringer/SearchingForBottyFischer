@@ -1,24 +1,43 @@
 class Player:
     def __init__(self,color):
         self.color = color
+        self.Color_Num = {"White": 1,
+                        "Black": -1}
+        if self.color == "White":
+        self.turn = True
+        elif self.color =="Black":
+            self.turn = False
+        else:
+            print("eRrOr!")
+        self.color_num = self.Color_Num[self.color]
         self.Set_Count = {"P": 8,
                         "B": 2,
                         "N": 2,
                         "R": 2,
                         "Q": 1,
                         "K": 1}
+        if self.turn:               
+            self.Set_Start = {"P": ['a2','b2','c2','d2','e2','f2','g2','h2'],
+                            "B": ['c1','f1'],
+                            "N": ['b1','g1'],
+                            "R": ['a1','h1'],
+                            "Q": ['d1']
+                            "K": ['e1']}
+        else:                
+            self.Set_Start = {"P": ['a7','b7','c7','d7','e7','f7','g7','h7'],
+                            "B": ['c8','f8'],
+                            "N": ['b8','g8'],
+                            "R": ['a8','h8'],
+                            "Q": ['d8']
+                            "K": ['e8']}
+        self.Piece_Set = {f"{k}{n}": ChessPiece(k,self.color,self.Set_Start[k][n]) for k,v in self.Set_Count.items() for n in range(1,v+1) }
         self.Capture_Count = {"P": 0,
                         "B": 0,
                         "N": 0,
                         "R": 0,
                         "Q": 0,
                         "K": 0}
-        if self.color == "White":
-            self.turn = True
-        elif self.color =="Black":
-            self.turn = False
-        else:
-            print("eRrOr!")
+
 
     def gen_pseudolegal_moves(self,c,board,board_threat_and_supports):     
         pieces_on_board = []
