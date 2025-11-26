@@ -1,6 +1,7 @@
 import copy
 from ChessBoard import ChessBoard
 from ChessPiece import ChessPiece
+from GeneralDicts import GeneralDicts
 from Player import Player
 
 class ChessSet:

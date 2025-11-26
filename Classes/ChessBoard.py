@@ -1,47 +1,12 @@
 from BoardSquare import BoardSquare
+from GeneralDicts import GeneralDicts
 
 class ChessBoard:
     def __init__(self):
         self.whose_turn = "White"
-        self.Color_Num = {"White": 1,
-                        "Black": -1}
         self.color_num = self.Color_Num[self.whose_turn]
         self.Board = {}
         self.BoardsRunningList = {}
-        self.Piece_ID = {' ': 0,
-                     'P': 1,
-                     'B': 2,
-                     'N': 3,
-                     'R': 4,
-                     'Q': 5,
-                     'K': 6}
-        self.Piece_ID_Inv = {v: k for k,v in self.Piece_ID.items()}
-        self.ID_Values = {0: 0,
-                           1: 1,
-                           2: 3,
-                           3: 3,
-                           4: 5,
-                           5: 9,
-                           6: 40}
-        self.ID_Values_Inv = {v: k for k,v in self.ID_Values.items()}
-        self.Piece_Values = {" ": 0,
-                            "P": 1,
-                            "N": 3,
-                            "B": 3,
-                            "R": 5,
-                            "Q": 9,
-                            "K": 40}
-        self.Piece_Values_Inv = {v: k for k,v in self.Piece_Values.items()}
-        self.Let_Num = {'a': 1,
-                      'b': 2,
-                      'c': 3,
-                      'd': 4,
-                      'e': 5,
-                      'f': 6,
-                      'g': 7,
-                      'h': 8}
-        self.Num_Let = {v: k for k,v in self.Let_Num.items()}
-
         self.turn_number = 0
         self.terminal_row_order = ['R','N','B','Q','K','B','N','R']
         self.mid_rows_nums = [4,5]

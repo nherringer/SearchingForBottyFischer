@@ -1,3 +1,4 @@
+from GeneralDicts import GeneralDicts
 class BoardSquare:
     def __init__(self,sq_id,occupant_id,sq_potential,occupant_uID):
         self.sq_id = sq_id

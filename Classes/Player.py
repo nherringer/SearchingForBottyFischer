@@ -1,13 +1,12 @@
 from ChessPiece import ChessPiece
 from BoardSquare import BoardSquare
 from ChessBoard import ChessBoard
+from GeneralDicts import GeneralDicts
 import copy
 
 class Player:
     def __init__(self,color,CB):
         self.color = color
-        self.Color_Num = {"White": 1,
-                        "Black": -1}
         if self.color == "White":
             self.turn = True
         elif self.color =="Black":
